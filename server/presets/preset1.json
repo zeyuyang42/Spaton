@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "ambientVol",
+    "events": [2],
+    "occupied": false,
+    "client": "undefined"
+  },
+  {
+    "id": 2,
+    "name": "walkOnSand",
+    "events": [1, 2, 3],
+    "occupied": false,
+    "client": "undefined"
+  },
+  {
+    "id": 3,
+    "name": "monksTimbre",
+    "events": [1, 2, 3, 4, 5, 6],
+    "occupied": false,
+    "client": "undefined"
+  },
+  {
+    "id": 4,
+    "name": "tibetanBells",
+    "events": [4, 5, 6],
+    "occupied": false,
+    "client": "undefined"
+  },
+  {
+    "id": 5,
+    "name": "glitch",
+    "events": [3],
+    "occupied": false,
+    "client": "undefined"
+  },
+  {
+    "id": 6,
+    "name": "monksVolPos",
+    "events": [1, 2, 3],
+    "occupied": false,
+    "client": "undefined"
+  }
+]

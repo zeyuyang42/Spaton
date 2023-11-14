@@ -1,0 +1,7 @@
+@import url(https://db.onlinewebfonts.com/c/a2fc7175d3b14f7c97f6d3451b8e190f?family=MuseoSlab-1000);
+
+h1 {
+  -webkit-text-stroke: 0.2px black; 
+  font-family: "MuseoSlab-1000", sans-serif;
+  color: rgb(150, 204, 255);  /*150, 204, 255*/
+}
