@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://absinthismus.com/spaton/implementation/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Implementation - Spaton</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Implementation";
+        var mkdocs_page_input_path = "implementation.md";
+        var mkdocs_page_url = "/spaton/implementation/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Spaton
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../demonstrations/">Demonstrations</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Implementation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-client">1 Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-server">2 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-limitations">3. Limitations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-future-work">4. Future Work</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Spaton</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Implementation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="implementation">Implementation</h1>
+<p>This section is intended primarily for course reports, and for someone interested in implementation details. Most people can ignore this section.</p>
+<h2 id="1-client">1 Client</h2>
+<p>Client is implemented using <a href="https://react.dev/">React</a> and uses the lightweight <a href="https://tachyons.io/">tachyons</a> toolkit to process CSS. It uses <a href="https://socket.io/docs/v4/client-api/">socket.io-client</a> to manage the websocket connection between client and server.</p>
+<p>Following js files in src folder are the main implementations:</p>
+<p><code>App.js</code>: The starting point of client functionalities</p>
+<p><code>InfoBoard.js</code>: Display the information according to status. For now this is just a static paragraph</p>
+<p><code>RouteCard.js</code>: The implementation of route card object. It process the logic and visual feedback of route cards.</p>
+<p><code>RouteManager.js</code>: Each route card equips a route manager object to deal with the communication with server using the client socket.</p>
+<p><code>WebEvents.js</code>: The json file to save mobile phone sensor event information. </p>
+<p><code>configs.js</code>: configs file stores the general configurations of client, e.g IP&amp;Port</p>
+<hr />
+<p>The client intialize the socket at the very begining before render the frontend.  At the beginning of rendering it sends a https request to the server to get the current state of routes, then uses the response data to set the RouteCards state. All route card components are rendered according this state. All states and style of the route card is defined by the data from server.</p>
+<p>The RouteCard component needs to process the click interaction. It will check if the permission to use DeviceMotionEvent has been granted. It will request the permission if still not granted. After the permission check, I will send message to the server to occupy or to release a route according to the connection state. The RouteCard will set the connection state based on the returned message from server. The corresponding route manager will start or stop sending messages to ther server according to the connection state. The route manager choose the callback functions for EventListener according to the Events field as explained in Usage section.</p>
+<h2 id="2-server">2 Server</h2>
+<p>Server relies on<a href="https://expressjs.com/"> Express.js</a> to create the server. <a href="https://socket.io/">socket.io</a> is the tool fo full duplex connection between the clients and the server. The server broadcasts <a href="https://en.wikipedia.org/wiki/Open_Sound_Control">OSC</a> messages with help of the <a href="https://github.com/colinbdclark/osc.js/">osc.js</a> library. </p>
+<p>Following js files in src folder are the main implementations:</p>
+<p><code>server.js</code>: All the main implementation is in the server.js file which includes Server Setup, Websockt Application, Https Application and OSC Application.</p>
+<p><code>configs.js</code>: configs file stores the general configurations of client, e.g IP&amp;Port</p>
+<p><code>utils.js</code>: Some utility functions</p>
+<hr />
+<p>The server loads the preset when initialised. Then it setups the backend by creating express application, setting up https server, setting up websocket and listening to specific IP/Port. It also opens the udp port for broadcasting OSC messages. </p>
+<p>The server process messages from all socket from different clients. It creates a sperate socket channel when new connection established, and clean up the the occupied routes when disconnection detected. When the message to request occupy and release a route detected. The server looks up the state fields in the preset json to give corresponding feedbacks. The client keeps sending sensor data belongs a route. The server checks the socket id of all coming sensor data and process the data only when the socket.id matches the id in the state field. All accepted sensor data are then broadcasted using the udp port. </p>
+<h2 id="3-limitations">3. Limitations</h2>
+<p>The implementation is still in a very early stage. It can only run inside specific LAN and there are still a lot of browsers and mobile phones to be tested. The implementation misses a robust throoughtout error control. The plan of the design was to make a seamless intergration from sensor data to spatial audio scenarios.  But there is still a very loose connection between the sensor processign system and spatial sound system. The unidirectional OSC connection makes the system indistinguishable from normal OSC control software in some cases. A very insight thought pointed by Dr.Henrik von Coler is that the underutilisation of multi-user connections. Theoretically it's possible to involve huge amout of clients into spatial composition. However, the design logic limits the maximum number to the number of route card. </p>
+<h2 id="4-future-work">4. Future Work</h2>
+<p>Personally, I remain optimistic about the potential of the system and will continue to work on subsequent iterations to improve it. Based on the shortcomings mentioned above, here are some possible directions for further design.</p>
+<ul>
+<li>
+<p>Optimise the code to improve the ability to handle feedback for all types of web problems. The code should be optimised to provide a level of interaction that is expected from a web application. </p>
+</li>
+<li>
+<p>Re-engineer the way OSC addresses are organised and allow for automatic capacity management based on the information of the connected clients. Improve system integration by including feedback from the sound engine. </p>
+</li>
+<li>Create OSC process template  for all common audio engines</li>
+<li>Explore the ability to perform audio processing, especially spatial processing, directly on the server side in addition to OSC control signals.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../demonstrations/" class="btn btn-neutral float-left" title="Demonstrations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../demonstrations/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://absinthismus.com/spaton/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://absinthismus.com/spaton/about/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://absinthismus.com/spaton/demonstrations/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://absinthismus.com/spaton/implementation/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://absinthismus.com/spaton/installation/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://absinthismus.com/spaton/usage/</loc>
+         <lastmod>2023-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

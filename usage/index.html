@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://absinthismus.com/spaton/usage/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Usage - Spaton</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Usage";
+        var mkdocs_page_input_path = "usage.md";
+        var mkdocs_page_url = "/spaton/usage/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Spaton
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-client-interaction">1. Client Interaction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#11-connection">1.1 Connection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#12-ui">1.2 UI</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-demo-listening">2. Demo Listening</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-presets">3. Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-example">3.1 Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32-create-preset">3.2 Create Preset</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#321-json-fields">3.2.1 JSON Fields</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#322-events">3.2.2 Events</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#33-use-preset">3.3 Use Preset</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-osc-messages">4. OSC messages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-spatialization">5. Spatialization</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../demonstrations/">Demonstrations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../implementation/">Implementation</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Spaton</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="usage">Usage</h1>
+<p>Ensure that you have completed the installation process and are able to successfully launch the client and server.</p>
+<h2 id="1-client-interaction">1. Client Interaction</h2>
+<h3 id="11-connection">1.1 Connection</h3>
+<p>Make sure your phone is in the same network with the servers (Maybe just your Laptop in this early stage). View the Client in the Browser according to the following url. Please don't use the localhost. </p>
+<p><img alt="image-20231115155735244" src="../img/Snipaste_2023-11-15_15-59-23.png" /></p>
+<p>🚨 There would be a security warning from the brower for the first time login. Since we are using a self-signed ssl certificate instead of being issued by an trusted authority. You can ignore this and keep logging in if you believe in yourself :)</p>
+<h3 id="12-ui">1.2 UI</h3>
+<p>The Client UI looks as follow. The main functional parts are the listed route cards. Each route card represents a route for the client to choose. Blue cards are still available route. Red cards are choosen by this client. Grey cards with strikethrough means these routes are already occupied by other clients. Each route requires a list of sensor data. One client can choose multiply routes together.</p>
+<p><img alt="image-20231115155735244" src="../img/frontend_screenshot.png" /></p>
+<h2 id="2-demo-listening">2. Demo Listening</h2>
+<p>You can experience the Spaton system using the demo patch I created. Take look at the <strong>Lost in Tibet</strong> in the patches folder for guidance of how to set it up.</p>
+<h2 id="3-presets">3. Presets</h2>
+<h3 id="31-example">3.1 Example</h3>
+<p>Sure you will soon get bored if Spaton is only capable of supporting one specific composition. Luckily you can create presets for your own compositions. The route cards in the client UI are created orignally based on the preset data provided by the server looks as follow. Take a look at the Details section for better understanding (Later). </p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;ambientVol&quot;,
+    &quot;events&quot;: [2],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;walkOnSand&quot;,
+    &quot;events&quot;: [1, 2],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  },
+  {
+    &quot;id&quot;: 3,
+    &quot;name&quot;: &quot;monksTimbre&quot;,
+    &quot;events&quot;: [1, 2, 3, 4, 5, 6],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  },
+  {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;tibetanBells&quot;,
+    &quot;events&quot;: [4, 5, 6],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  },
+  {
+    &quot;id&quot;: 5,
+    &quot;name&quot;: &quot;glitch&quot;,
+    &quot;events&quot;: [3],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  },
+  {
+    &quot;id&quot;: 6,
+    &quot;name&quot;: &quot;monksVolPos&quot;,
+    &quot;events&quot;: [1, 2],
+    &quot;occupied&quot;: false,
+    &quot;client&quot;: &quot;undefined&quot;
+  }
+]
+</code></pre>
+<h3 id="32-create-preset">3.2 Create Preset</h3>
+<p>You can create and use your own preset file. The preset files saved in the <code>presets</code> folder inside <code>server</code> folder where you can add your own json files.</p>
+<h4 id="321-json-fields">3.2.1 JSON Fields</h4>
+<p>Each route card is defined using the same fields:</p>
+<p><code>id</code>: serial id of route card as identifier</p>
+<p><code>name</code>: the name to display on the route card</p>
+<p><code>events</code>: The list of mobile phone sensor events in this route. See <strong>Events</strong> section for details</p>
+<p><code>occupied</code>: indicator for whether the route has been occupied</p>
+<p><code>client</code>: save the client id if route is occupied</p>
+<h4 id="322-events">3.2.2 Events</h4>
+<p>The numbers in the events list of preset json present different sensor parameters. These are defined in the <code>WebEvents.js</code> file inside the <code>client</code>. Please check the code for complete fields. The basic fields listed as below:</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Event</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>deviceorientation</td>
+<td>alpha</td>
+</tr>
+<tr>
+<td>2</td>
+<td>deviceorientation</td>
+<td>beta</td>
+</tr>
+<tr>
+<td>3</td>
+<td>deviceorientation</td>
+<td>gamma</td>
+</tr>
+<tr>
+<td>4</td>
+<td>devicemotion</td>
+<td>x</td>
+</tr>
+<tr>
+<td>5</td>
+<td>devicemotion</td>
+<td>y</td>
+</tr>
+<tr>
+<td>6</td>
+<td>devicemotion</td>
+<td>z</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-use-preset">3.3 Use Preset</h3>
+<p>To start the server with a specific preset file, please set the <code>configs.presetAddress</code> in the <code>configs.js</code> of the server. </p>
+<h2 id="4-osc-messages">4. OSC messages</h2>
+<p>🚨 The OSC message formation is far from satisfied. It is going to be modified/improved in the following version!</p>
+<p>The address pattern of OSC message is formatted in the structure of :</p>
+<p>/<code>${routeName}</code>/<code>${parameterName}</code></p>
+<p>e.g The route <strong>walkOnSand</strong> requires the events 1 and 2, which is the alpha and beta of device orientation event. The formatted message head looks like: </p>
+<p><code>/walkOnSand/alpha</code></p>
+<p><code>/walkOnSand/beta</code></p>
+<p>While the argument is the original orientation value along this axis without scale. You can receive OSC messages according to these address in the sound engine and use it to complete your composition.</p>
+<h2 id="5-spatialization">5. Spatialization</h2>
+<p>I won't give any tutorial of how to make spatial audio composition. But there are some basic ideas I tried and thought of when playing with the mobile phone sensors. </p>
+<ul>
+<li>Use the deviceorientation parameters to control the sound object position</li>
+<li>Use the devicemotion to control the moving speed of object</li>
+<li>Use the not with spatialisation connected parameter to control other sound parameters </li>
+<li>Shake the mobile phone to spatial granularize a material. (Tried, but my spatial granular patch is too computational inefficient )</li>
+<li>...</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../demonstrations/" class="btn btn-neutral float-right" title="Demonstrations">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../demonstrations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
