@@ -20,7 +20,7 @@ configs.frontEndIP = "192.168.178.169";
 configs.frontEndPort = 3000;
 configs.frontEndAddress = "https://" + configs.frontEndIP + ":" + configs.frontEndPort;
 
-configs.presetAddress = "./presets/preset1.json"
+configs.presetAddress = "./presets/lost_in_tibet.json"
 
 
 module.exports = configs;

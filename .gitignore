@@ -3,7 +3,8 @@
 
 # dependencies
 package-lock.json
-/node_modules
+node_modules/
 
 # ssl certificates
-/sslcert
+sslcert/
+site/

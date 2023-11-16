@@ -1,0 +1,9 @@
+site_name: Spaton
+site_url: https://absinthismus.com/spaton
+nav:
+  - About: about.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Demonstrations: demonstrations.md
+  - Implementation: implementation.md
+theme: readthedocs

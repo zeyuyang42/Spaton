@@ -37,8 +37,6 @@ export const WebEvents =[
         name: "devicemotion",
         additional: "x",
         type: "float",
-        minimum: undefined,
-        maximum: undefined,
         callback: "handleAccelerationX",
         description: "Represents the acceleration upon the x axis which is the west to east axis."
     },
@@ -48,8 +46,6 @@ export const WebEvents =[
         name: "devicemotion",
         additional: "y",
         type: "float",
-        minimum: undefined,
-        maximum: undefined,
         callback: "handleAccelerationY",
         description: "Represents the acceleration upon the y axis which is the south to north axis."
     },
@@ -59,8 +55,6 @@ export const WebEvents =[
         name: "devicemotion",
         additional: "z",
         type: "float",
-        minimum: undefined,
-        maximum: undefined,
         callback: "handleAccelerationZ",
         description: "Represents the acceleration upon the z axis which is the down to up axis."
     },
@@ -69,8 +63,6 @@ export const WebEvents =[
         id: 7,
         name: "deviceshake",
         type: "bang",
-        threshold: 2000,
-        interval: 200,
         callback: "handleShake",
         description: "Event represents whether the phone has been shaked."
     },
