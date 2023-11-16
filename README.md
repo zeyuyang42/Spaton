@@ -50,9 +50,9 @@ Support for more sensor events are considered.
 
 ## 3. Code Structure
 
-- **client: ** the implementation code of the client part
-- **server: ** the implementation code of the server part
-- **patches: ** spatial audio compositions
+-  **client: ** the implementation code of the client part
+-  **server: ** the implementation code of the server part
+-  **patches: ** spatial audio compositions
 
 ## 4. Test Environment
 
