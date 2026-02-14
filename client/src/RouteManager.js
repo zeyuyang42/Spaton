@@ -5,29 +5,24 @@ function RouteManager({granted, connected, name, events, socket}) {
     const [listeners, setListeners] = useState([]);
 
     useEffect(() => {
-        connected&granted ? startRouting() : stopRouting();
+        connected && granted ? startRouting() : stopRouting();
     }, [connected, granted, socket]);
 
     const startRouting = () => {
         const filteredWebEvents = WebEvents.filter((event) => events.includes(event.id));
+        const newListeners = [];
         filteredWebEvents.forEach((el) => {
             const listenerName = el.name;
-            const listenerFunc = el.callback;
-            // socket.emit('message', listenerName);
-            // socket.emit('message', listenerFunc);
-            window.addEventListener(listenerName, webEventCallbacks[listenerFunc](socket, name), true);
-            setListeners((prevListeners) => [
-                ...prevListeners,
-                { listenerName, listenerFunc },
-            ]);
+            const listenerFunc = webEventCallbacks[el.callback](socket, name);
+            window.addEventListener(listenerName, listenerFunc, true);
+            newListeners.push({ listenerName, listenerFunc });
         });
+        setListeners((prevListeners) => [...prevListeners, ...newListeners]);
     };
 
     const stopRouting = () => {
-        // Buggy, remove doesn't work
         listeners.forEach((el) => {
-            // socket.emit('message',  el.listenerFunc);
-            window.removeEventListener(el.listenerName, webEventCallbacks[el.listenerFunc]);
+            window.removeEventListener(el.listenerName, el.listenerFunc, true);
         });
         setListeners([]);
     };
